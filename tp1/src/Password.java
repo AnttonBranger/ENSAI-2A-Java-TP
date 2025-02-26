@@ -40,9 +40,9 @@ public class Password {
      */
     public static String bruteForce6Digit(String targetHash) {
 
-        // Code here
-
-        return null;
+        // code here
+        
+        return null
     }
 
     /**
@@ -61,8 +61,25 @@ public class Password {
      */
     public static boolean isStrongPassword(String password) {
 
-        // Code here
-
+        if (password == null || password.length() < 12) {
+            return false;
+        }
+    
+        boolean hasUpper = false;
+        boolean hasLower = false;
+        boolean hasDigit = false;
+        boolean hasWhitespace = false;
+    
+        for (char c : password.toCharArray()) {
+            if (Character.isUpperCase(c)) hasUpper = true;
+            else if (Character.isLowerCase(c)) hasLower = true;
+            else if (Character.isDigit(c)) hasDigit = true;
+            else if (Character.isWhitespace(c)) hasWhitespace = true;
+        }
+    
+        if (hasUpper, hasLower, hasDigit, hasWhitespace = true, true, true, false){
+            return true;
+        }
         return false;
     }
 
