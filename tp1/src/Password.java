@@ -39,10 +39,15 @@ public class Password {
      * @return the 6-digit number that matches, or null if no match is found
      */
     public static String bruteForce6Digit(String targetHash) {
-
-        // code here
-        
-        return null
+        for (int i = 0; i < 1000000; i++) { // Parcourt tous les nombres de 000000 à 999999
+            String number = String.format("%06d", i); // Formate en six chiffres (ex: "000123")
+            String hash = hashPassword(number);
+    
+            if (hash.equals(targetHash)) {
+                return number; // Retourne le nombre trouvé si le hash correspond
+            }
+        }
+        return null;
     }
 
     /**
@@ -77,7 +82,7 @@ public class Password {
             else if (Character.isWhitespace(c)) hasWhitespace = true;
         }
     
-        if (hasUpper, hasLower, hasDigit, hasWhitespace = true, true, true, false){
+        if (hasUpper && hasLower && hasDigit && !hasWhitespace){
             return true;
         }
         return false;
@@ -93,7 +98,7 @@ public class Password {
      */
     public static HashMap<String, Boolean> checkPasswordsList(ArrayList<String> passwords) {
 
-        // Code here
+        for (Map.Entry<String, Boolean> entry : )
 
         return null;
     }
