@@ -1,5 +1,6 @@
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -97,10 +98,16 @@ public class Password {
      *         true if the password is strong, false otherwise
      */
     public static HashMap<String, Boolean> checkPasswordsList(ArrayList<String> passwords) {
-
-        for (Map.Entry<String, Boolean> entry : )
-
-        return null;
+        
+        HashMap<String, Boolean> passwordStrengthMap = new HashMap<>();
+        for (String password : passwords){
+            if (isStrongPassword(password)){
+                passwordStrengthMap.put("password", true);
+            } else{
+                passwordStrengthMap.put("password", false);
+            }
+        }
+        return passwordStrengthMap;
     }
 
     /**
@@ -117,8 +124,12 @@ public class Password {
      */
     public static String generatePassword(int nbCar) {
 
-        // Code here
+        if (nbCar < 3){
+            System.out.println("The length of the password must be at least 4");
+        }
 
+        SecureRandom random = new SecureRandom();
+        
         return null;
     }
 
