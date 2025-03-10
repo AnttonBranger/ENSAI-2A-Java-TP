@@ -14,33 +14,36 @@ import java.util.Map;
 public class Library {
     // Attributes
     private String name;
-    private List<Book> books;
+    private List<Item> items;
+    private List<loan> activeLoans;
+    private List<loan> completedLoans;
 
     // Constructor
     public Library(String name, List<Book> books) {
         this.name = name;
-        this.books = books;
+        this.items = items;
     }
 
     // Methods
     /**
-     * Adds a book to the library
+     * Adds an item to the library
      * 
-     * @param book
+     * @param item the item we add to the library
      */
-    public void addBook(Book book) {
-        books.add(book);
+    public void addItem(Item item) {
+        items.add(item);
     }
 
     /**
-     * 
+     * Print the name and the author of the books of the library
      */
-    public void displayBook() {
-        if (books.isEmpty()) {
+    public void displayItem() {
+        if (items.isEmpty()) {
             System.out.println("The library is empty");
-        }
-        for (Book book : books) {
-            System.out.println(toString(book));
+        } else {
+            for (Item item : items) {
+                System.out.println(item);
+            }
         }
     }
 
@@ -79,7 +82,7 @@ public class Library {
                     }
                     Book book = new Book(isbn, title, author, year, pageCount);
 
-                    this.addIem(book);
+                    this.addItem(book);
                 }
             }
         } catch (
